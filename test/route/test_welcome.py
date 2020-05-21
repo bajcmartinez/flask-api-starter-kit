@@ -8,7 +8,7 @@ class TestWelcome(TestCase):
 
     def test_welcome(self):
         """
-        Tests the home screen message
+        Tests the route screen message
         """
         rv = self.app.get('/api/')
 
