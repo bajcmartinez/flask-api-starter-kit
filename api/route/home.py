@@ -7,7 +7,7 @@ from api.schema.welcome import WelcomeSchema
 home_api = Blueprint('api', __name__)
 
 
-@home_api.route('/', defaults={'page': 'index'})
+@home_api.route('/')
 @swag_from({
     'responses': {
         HTTPStatus.OK.value: {
@@ -16,6 +16,11 @@ home_api = Blueprint('api', __name__)
         }
     }
 })
-def welcome(page):
+def welcome():
+    """
+    1 liner about the route
+    A more detailed description of the endpoint
+    ---
+    """
     result = WelcomeModel()
     return WelcomeSchema().dump(result), 200
