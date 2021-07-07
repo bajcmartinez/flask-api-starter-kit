@@ -8,6 +8,7 @@ flask = "*"
 flasgger = "*"
 flask-marshmallow = "*"
 apispec = "*"
+python-dotenv = "*"
 
 [dev-packages]
 
