@@ -1,6 +1,6 @@
-# Flask API Starter Kit
+# Web-Monitor-Backend
 
-Sample API layout structure to be used as a baseline for other apps
+A backend server for our project web-monitor-dashboard
 
 ## Dependencies
 
@@ -12,19 +12,23 @@ Sample API layout structure to be used as a baseline for other apps
 ## Set Up
 
 1. Check out the code
-2. Install requirements
+2. Install pipenv (ignore if installed)
+    ```bash
+    pip install pipenv # if not installed
     ```
+3. Install requirements
+    ```bash
     pipenv install
     ```
-3. Start the server with:
-    ```
-   pipenv run python -m flask run
+4. Start the server with:
+    ```bash
+    pipenv run python -m flask run
     ```
    
-4. Visit http://localhost/api for the home api
+5. Visit http://localhost:port/api for the home api, default port is 5000.
 
-4. Visit http://localhost/apidocs for the swagger documentation
-   
+6. Visit http://localhost:port/apidocs for the swagger documentation, default port is 5000.
+
 ## Tests
 
 The code is covered by tests, to run the tests please execute

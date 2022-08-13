@@ -1,0 +1,28 @@
+{
+  "name": "web-monitor-backend",
+  "version": "1.0.0",
+  "description": "A backend server for our project web-monitor-dashboard",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/youth-camp-root/web-monitor-backend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/youth-camp-root/web-monitor-backend/issues"
+  },
+  "homepage": "https://github.com/youth-camp-root/web-monitor-backend#readme",
+  "devDependencies": {
+    "@commitlint/cli": "^17.0.3",
+    "@commitlint/config-conventional": "^17.0.3",
+    "husky": "^8.0.1"
+  }
+}
