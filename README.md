@@ -29,6 +29,10 @@ A backend server for our project web-monitor-dashboard
 
 6. Visit http://localhost:port/apidocs for the swagger documentation, default port is 5000.
 
+## Contribute
+
+Checkout [instructions](docs/instructions.md).
+
 ## Tests
 
 The code is covered by tests, to run the tests please execute
