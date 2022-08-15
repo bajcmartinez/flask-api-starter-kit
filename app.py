@@ -18,7 +18,7 @@ def create_app():
     app.config.from_pyfile('config.py')
     db.init_app(app)
 
-    app.register_blueprint(api, url_prefix='/api')
+    app.register_blueprint(api)
 
     return app
 
