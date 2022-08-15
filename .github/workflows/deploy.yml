@@ -9,16 +9,20 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      # Deploy
-      - name: Deploy
+      - uses: actions/checkout@v2
+      - name: deploy
         uses: easingthemes/ssh-deploy@main
         env:
           SSH_PRIVATE_KEY: ${{ secrets.ACCESS_TOKEN }}
-          ARGS: "-avz --delete"
+          ARGS: "-avz --delete --exclude instance"
           SOURCE: "*"
           REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
           TARGET: ${{ secrets.TARGET }}
-      
-      # Restart Server
-      
+      - name: restart systemctl on ssh server
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.REMOTE_HOST }}
+          username: ${{ secrets.REMOTE_USER }}
+          key: ${{ secrets.ACCESS_TOKEN }}
+          script: systemctl --user restart monitor-backend.service
