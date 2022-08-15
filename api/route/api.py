@@ -2,8 +2,9 @@
 api.py
 """
 
-from flask import Blueprint, jsonify, request
+from flask import Blueprint, jsonify, request, abort
 from bson.objectid import ObjectId
+from bson.errors import BSONError
 from ..model.models import UserExample, RequestExample, ErrorExample
 
 api = Blueprint('api', __name__)
@@ -13,6 +14,25 @@ api = Blueprint('api', __name__)
 def getUsers():
     users = UserExample.objects
     return jsonify(users)
+
+
+@api.route('/user', methods=['GET'])
+def getUserInfo():
+    userID = request.args.get('id')
+
+    if not userID:
+        abort(404)
+
+    try:
+        user = UserExample.objects(_id=ObjectId(userID)).first()
+        if not user:
+            abort(404)
+
+        user_events = ErrorExample.objects(user=ObjectId(userID))
+        return jsonify({'user': user, 'events': user_events})
+    except Exception as e:
+        print(e)
+        abort(404)
 
 
 @api.route('/request', methods=['GET'])
