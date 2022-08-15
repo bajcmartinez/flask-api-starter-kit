@@ -11,32 +11,23 @@ A backend server for our project web-monitor-dashboard
 
 ## Set Up
 
-1. Check out the code
-2. Install pipenv (ignore if installed)
-    ```bash
-    pip install pipenv # if not installed
+1. Clone 本仓库
+2. 配置数据库接口
+    ```python
+    MONGODB_SETTINGS = {
+        'db': 'MongoDBAtlas',
+        'host': "mongodb+srv://ffo:ffo@sit314.k9wlscy.mongodb.net/?retryWrites=true&w=majority"
+    }
     ```
-3. Install requirements
+3. 安装依赖
     ```bash
-    pipenv install
+    pip install -r requirements.txt
     ```
-4. Start the server with:
+4. 启动服务端
     ```bash
-    pipenv run python -m flask run
+    export FLASK_DEBUG=true
+    flask run
     ```
-   
-5. Visit http://localhost:port/api for the home api, default port is 5000.
+5. 访问 http://localhost:port/apidocs 查看 swagger 文档
 
-6. Visit http://localhost:port/apidocs for the swagger documentation, default port is 5000.
-
-## Contribute
-
-Checkout [instructions](docs/instructions.md).
-
-## Tests
-
-The code is covered by tests, to run the tests please execute
-
-```
-pipenv run python -m unittest
 ```
