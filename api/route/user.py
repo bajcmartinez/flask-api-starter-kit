@@ -11,7 +11,7 @@ def getUsers():
     return jsonify(users)
 
 
-@api.route('/<int:id>', methods=['GET'])
+@api.route('/<userID>', methods=['GET'])
 def getUserInfo(userID):
     """Get detailed info for a specific user
     ---
@@ -22,16 +22,13 @@ def getUserInfo(userID):
           required: true
     """
 
-    if not userID:
-        abort(404)
-
     try:
         user = UserExample.objects(_id=ObjectId(userID)).first()
         if not user:
-            abort(404)
+            abort(400)
 
         user_events = ErrorExample.objects(user=ObjectId(userID))
         return jsonify({'user': user, 'events': user_events})
     except Exception as e:
         print(e)
-        abort(404)
+        abort(400)
